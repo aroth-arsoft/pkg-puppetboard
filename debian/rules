@@ -14,9 +14,16 @@ DESTDIR := $(CURDIR)/debian/tmp
 %:
 	dh $@ --with python2, --with python3
 
+override_dh_auto_install:
+	dh_auto_install
+	install -d -m 0750 -o root -g root debian/python-puppetboard/etc/puppetboard
+	install -m 0640 debian/python-puppetboard/usr/lib/python2.7/dist-packages/puppetboard/default_settings.py debian/python-puppetboard/etc/puppetboard/settings.py
+	ln -s /etc/puppetboard/settings.py debian/python-puppetboard/usr/lib/python2.7/dist-packages/puppetboard/settings.py
+
 override_dh_install:
 	install -d -m 0750 -o root -g root $(DESTDIR)/etc/puppetboard
-	install -m 0640 $(DESTDIR)/usr/lib/python2.7/dist-packages/puppetboard/default_settings.py $(DESTDIR)/etc/puppetboard/settings.py
+	install -m 0640 debian/python-puppetboard/usr/lib/python2.7/dist-packages/puppetboard/default_settings.py $(DESTDIR)/etc/puppetboard/settings.py
+	install -d -m 0755 -o root -g root $(DESTDIR)/usr/lib/python2.7/dist-packages/puppetboard
 	ln -s /etc/puppetboard/settings.py $(DESTDIR)/usr/lib/python2.7/dist-packages/puppetboard/settings.py
 	dh_install
 

@@ -2,23 +2,14 @@ Source: puppetboard
 Section: admin
 Priority: optional
 Maintainer: Andreas Roth <aroth@arsoft-online.com>
-Standards-Version: 3.9.6
-Build-Depends: debhelper (>= 9), dh-python, python (>= 2.7), python3 (>= 3.2)
+Standards-Version: 3.9.7
+Build-Depends: debhelper (>= 9), dh-python, python (>= 2.7), python3, python-setuptools
 X-Python-Version: >=2.7
-X-Python3-Version: >=3.2
 
 Package: python-puppetboard
 Section: python
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, python-flask, python-flaskext.wtf, python-pypuppetdb (>= 0.2.1)
+Depends: ${python:Depends}, ${misc:Depends}, python-flask, python-flaskext.wtf, python-pypuppetdb (>= 0.2.1),
+ libjs-jquery
 Description: Puppetboard is a web interface to PuppetDB
  Python 2.7.x files to run and setup Puppetboard
-
-Package: python3-puppetboard
-Section: python
-Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, python3-flask, python3-flaskext.wtf, python3-pypuppetdb (>= 0.2.1)
-Description: Puppetboard is a web interface to PuppetDB
- Python 3.x files to run and setup Puppetboard.
- DO NOT use this package for now.
-
