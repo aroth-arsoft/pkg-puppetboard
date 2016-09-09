@@ -1,0 +1,14 @@
+/build/
+/puppetboard/
+/puppetboard.egg-info/
+/screenshots/
+/CHANGELOG.rst
+/Dockerfile
+/LICENSE
+/MANIFEST.in
+/README.rst
+/dev.py
+/requirements.txt
+/setup.cfg
+/setup.py
+/wsgi.py
